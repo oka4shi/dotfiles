@@ -30,6 +30,9 @@ execute 'source '.expand('~/.config/nvim/plugins/fern.vim')
 repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
 execute 'source '.expand('~/.config/nvim/plugins/gitgutter.vim')
