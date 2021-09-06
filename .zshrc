@@ -18,7 +18,7 @@ setopt no_beep
 setopt nolistbeep
 
 # GOPATH
-export GOPATH=$HOME/
+export GOPATH=$HOME/go
 
 
 # setting for powerline-go
