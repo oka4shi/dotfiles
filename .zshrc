@@ -40,7 +40,7 @@ if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
 fi
 
 
-# ls coloring (github.com/shrkdp/vivid is required)
+# ls coloring (github.com/sharkdp/vivid is required)
 export LS_COLORS="$(vivid generate snazzy)"
 alias ls='ls -a --color=auto'
 alias ll='ls -lah --color=auto'
