@@ -32,5 +32,10 @@ execute 'source '.expand('~/.config/nvim/plugins/coc.vim')
 "syntax highlight for svelte
 call jetpack#add('evanleck/vim-svelte')
 
+call jetpack#add('reireias/vim-cheatsheet')
+let g:cheatsheet#float_window = 1
+let g:cheatsheet#float_window_width_ratio = 0.5
+let g:cheatsheet#float_window_height_ratio = 0.25
+nnoremap ? :Cheat<CR>
 
 call jetpack#end()

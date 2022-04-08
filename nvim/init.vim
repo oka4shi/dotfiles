@@ -14,15 +14,19 @@ endif
 
 execute 'set runtimepath+='.s:config_dir
 
-" Load plugins
+" Setting for vim-jetpack
 autocmd VimEnter * JetpackSync | source $MYVIMRC
 let g:jetpack#optimization = 1
+
+" Load plugins
 runtime plugin.vim
+let g:cheatsheet#cheat_file = s:config_dir . '/cheetsheet.md'
 
 runtime keymapping.vim
 
 set number
 set signcolumn=yes
+set pumblend=30
 
 set updatetime=250
 
