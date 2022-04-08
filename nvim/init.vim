@@ -65,5 +65,3 @@ syntax enable
 " pair brackets hilight
 set matchtime=0
 set matchpairs& matchpairs+=<:>
-
-

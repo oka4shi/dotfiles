@@ -8,6 +8,8 @@ nnoremap U <c-r>
 
 nnoremap <c-w> <c-w>W
 
+" using standard regex by default
+nnoremap / /\v
 
 augroup MyXML
   autocmd!
