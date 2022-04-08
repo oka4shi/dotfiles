@@ -2,6 +2,7 @@ language C
 
 set number
 set signcolumn=yes
+set pumblend=10
 
 set updatetime=250
 
@@ -36,7 +37,7 @@ nnoremap P ]P
 " redo
 nnoremap U <c-r>
 
-nnoremap <c-w> <c-w>w
+nnoremap <c-w> <c-w>W
 
 " close html tag
 augroup MyXML
@@ -44,3 +45,6 @@ augroup MyXML
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup ENDx
+
+" using standard regex by default
+nnoremap / /\v
