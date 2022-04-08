@@ -22,6 +22,8 @@ call jetpack#add('tomtom/tcomment_vim')
 call jetpack#add('airblade/vim-gitgutter')
 execute 'source '.expand('~/.config/nvim/plugins/gitgutter.vim')
 
+call jetpack#add('cohama/lexima.vim')
+
 call jetpack#add('luochen1990/rainbow')
 let g:rainbow_active = 1
 autocmd VimEnter * RainbowToggle
