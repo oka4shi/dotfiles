@@ -25,5 +25,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nnoremap <Space>f :Prettier<CR>
-vnoremap <Space>f :Prettier<CR>
+" mapping for format
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nmap <Space>f  <Plug>(coc-format-selected)
+vmap <Space>f  <Plug>(coc-format-selected)
