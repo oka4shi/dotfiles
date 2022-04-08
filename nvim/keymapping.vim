@@ -6,7 +6,7 @@ nnoremap P ]P
 
 nnoremap U <c-r>
 
-nnoremap <c-w> <c-w>w
+nnoremap <c-w> <c-w>W
 
 
 augroup MyXML
