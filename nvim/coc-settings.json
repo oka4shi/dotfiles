@@ -1,7 +1,19 @@
 {
-  "jedi": {
-    "enable": true,
-    "startupMessage": false,
-    "executable.command": "~/vim-python/bin/jedi-language-server"
-  }
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "javascript",
+        "typescript",
+        "go",
+        "svelte"
+    ],
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 100,
+    "svelte.enable-ts-plugin": true,
+
+    "jedi": {
+        "enable": true,
+        "startupMessage": false,
+        "executable.command": "~/vim-python/bin/jedi-language-server"
+    }
 }
