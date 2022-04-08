@@ -18,3 +18,5 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+nnoremap <Space>f :Prettier<CR>
+vnoremap <Space>f :Prettier<CR>
