@@ -26,7 +26,7 @@ runtime keymapping.vim
 
 set number
 set signcolumn=yes
-set pumblend=10
+set pumblend=25
 
 set updatetime=250
 
