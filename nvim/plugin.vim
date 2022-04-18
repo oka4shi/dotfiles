@@ -16,14 +16,17 @@ call jetpack#add('lambdalisue/fern-renderer-nerdfont.vim')
 call jetpack#add('lambdalisue/fern-git-status.vim')
 
 call jetpack#add('lambdalisue/fern.vim')
+execute 'source '.expand('~/.config/nvim/plugins/fern.vim')
 
-call jetpack#add('norcalli/nvim-colorizer.lua')
+call jetpack#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
+let g:Hexokinase_highlighters = [ 'virtual', 'backgroundfull' ]
 
 call jetpack#add('lukas-reineke/indent-blankline.nvim')
 
 call jetpack#add('tomtom/tcomment_vim')
 
 call jetpack#add('airblade/vim-gitgutter')
+execute 'source '.expand('~/.config/nvim/plugins/gitgutter.vim')
 
 call jetpack#add('cohama/lexima.vim')
 
@@ -32,6 +35,7 @@ let g:rainbow_active = 1
 autocmd VimEnter * RainbowToggle
 
 call jetpack#add('neoclide/coc.nvim', { 'branch': 'release' })
+execute 'source '.expand('~/.config/nvim/plugins/coc.vim')
 
 "syntax highlight for svelte
 call jetpack#add('evanleck/vim-svelte')
@@ -47,7 +51,4 @@ call jetpack#add('Shougo/vinarise.vim')
 
 call jetpack#end()
 
-execute 'source '.expand('~/.config/nvim/plugins/fern.vim')
 execute 'source '.expand('~/.config/nvim/plugins/indent-blankline.lua')
-execute 'source '.expand('~/.config/nvim/plugins/gitgutter.vim')
-execute 'source '.expand('~/.config/nvim/plugins/coc.vim')
