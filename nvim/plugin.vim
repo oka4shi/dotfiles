@@ -58,6 +58,8 @@ nnoremap ? :Cheat<CR>
 
 call jetpack#add('Shougo/vinarise.vim')
 
+call jetpack#add('andweeb/presence.nvim')
+
 call jetpack#end()
 
 execute 'source '.expand('~/.config/nvim/plugins/indent-blankline.lua')
