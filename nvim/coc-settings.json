@@ -1,15 +1,18 @@
 {
     "coc.preferences.formatOnSaveFiletypes": [
-        "css",
         "markdown",
+        "html",
+        "css",
         "javascript",
         "typescript",
-        "go",
-        "svelte"
+        "svelte",
+        "go"
     ],
     "prettier.tabWidth": 4,
     "prettier.printWidth": 100,
     "svelte.enable-ts-plugin": true,
+
+    "html.autoClosingTags": false,
 
     "jedi": {
         "enable": true,
