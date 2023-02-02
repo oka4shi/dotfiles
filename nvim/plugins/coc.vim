@@ -27,5 +27,5 @@ endfunction
 
 " mapping for format
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nmap <Space>f  <Plug>(coc-format-selected)
-vmap <Space>f  <Plug>(coc-format-selected)
+nmap <Leader>b  <Plug>(coc-format-selected)
+vmap <Leader>b  <Plug>(coc-format-selected)

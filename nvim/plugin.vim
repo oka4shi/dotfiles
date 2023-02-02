@@ -18,6 +18,14 @@ call jetpack#add('lambdalisue/fern-git-status.vim')
 call jetpack#add('lambdalisue/fern.vim')
 execute 'source '.expand('~/.config/nvim/plugins/fern.vim')
 
+" Fuzzy finder
+call jetpack#add('nvim-lua/plenary.nvim')
+call jetpack#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.1' })
+nnoremap <Leader>f <cmd>Telescope find_files<CR>
+nnoremap <Leader>tg <cmd>Telescope live_grep<cr>
+nnoremap <Leader>s <cmd>Telescope buffers<cr>
+nnoremap <Leader>th <cmd>Telescope help_tags<cr>
+
 call jetpack#add('RRethy/vim-hexokinase', { 'do': 'make hexokinase' })
 let g:Hexokinase_highlighters = [ 'virtual', 'backgroundfull' ]
 

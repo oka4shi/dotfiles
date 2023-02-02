@@ -6,6 +6,10 @@ Leader: Space
 -   gc: 選択範囲をコメント/アンコメント
 -   <Leader>l : 行番号の表示を切り替え
 -   <Leader>b : 開いているファイルをフォーマット
+-   <Leader>f : ファイル名を検索(Telescope)
+-   <Leader>s : 最近開いたファイルに切り替え(Telescope)
+-   <Leader>fg : Telescope live_grep
+-   <Leader>fh : Telescope help_tags
 
 ## コマンド類
 
