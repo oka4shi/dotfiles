@@ -41,6 +41,7 @@ execute 'source '.expand('~/.config/nvim/plugins/coc.vim')
 call jetpack#add('evanleck/vim-svelte')
 
 call jetpack#add('goahi/vim-cheatsheet')
+let g:cheatsheet#cheat_file = g:config_dir . '/cheetsheet.md'
 let g:cheatsheet#float_window = 1
 let g:cheatsheet#float_window_width_ratio = 0.5
 let g:cheatsheet#float_window_height_ratio = 0.25
