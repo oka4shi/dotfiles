@@ -11,6 +11,12 @@ Leader: Space
 -   <Leader>fg : Telescope live_grep
 -   <Leader>fh : Telescope help_tags
 
+-   gd : coc-definition
+-   gy : coc-type-definition
+-   gi : coc-implementation
+-   gr : coc-references
+-   K:show documentation in preview window
+
 ## コマンド類
 
 -   :noa w : ファイルをフォーマットせずに保存
