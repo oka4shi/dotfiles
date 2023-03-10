@@ -36,15 +36,24 @@ runtime keymapping.vim
 let g:config_dir = expand('~/.config/nvim')
 
 " install vim-jetpack if it is not installed
+let s:jetpackfile = g:config_dir .. '/autoload/jetpack.vim'
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+
 if empty(glob(g:config_dir . '/autoload/jetpack.vim'))
-  silent execute '!curl -fLo '.g:config_dir.'/autoload/jetpack.vim --create-dirs  https://raw.githubusercontent.com/tani/vim-jetpack/master/autoload/jetpack.vim'
+    echo "Installing jetpack..."
+    call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
 execute 'set runtimepath+='.g:config_dir
 
-" Setting for vim-jetpack
-autocmd VimEnter * JetpackSync | source $MYVIMRC
+" Automatic plugin installation
 let g:jetpack#optimization = 1
+for name in jetpack#names()
+  if !jetpack#tap(name)
+    call jetpack#sync()
+    break
+  endif
+endfor
 
 
 " Load plugins

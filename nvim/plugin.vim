@@ -1,3 +1,4 @@
+echo "test"
 call jetpack#begin()
 
 call jetpack#add('EdenEast/nightfox.nvim', {'tag': 'v1.0.0'})
