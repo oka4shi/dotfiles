@@ -2,7 +2,6 @@ language C
 
 set number
 set signcolumn=yes
-set pumblend=10
 
 set updatetime=250
 
