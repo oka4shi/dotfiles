@@ -8,6 +8,7 @@ endif
 set number
 set signcolumn=yes
 set pumblend=25
+set termguicolors
 
 set updatetime=250
 
@@ -56,5 +57,8 @@ for name in jetpack#names()
 endfor
 
 
+au FileType go setlocal sw=4 ts=4 sts=4 noet
+
+
 " Load plugins
-runtime plugin.vim
+runtime plugin.lua

@@ -18,5 +18,6 @@
         "enable": true,
         "startupMessage": false,
         "executable.command": "~/vim-python/bin/jedi-language-server"
-    }
+    },
+    "typescript.format.semicolons": "insert"
 }
