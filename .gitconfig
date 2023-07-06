@@ -1,0 +1,19 @@
+[user]
+    signingkey = 07D0089B2B415268
+    email = primary@goahi.live
+    name = "OKAMOTO Shigehiro"
+
+[init]
+    defaultbranch = main
+
+[core]
+    editor = vim
+
+[commit]
+    gpgsign = true
+
+[push]
+    default = current
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
