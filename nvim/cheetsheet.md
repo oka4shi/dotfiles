@@ -9,7 +9,7 @@ Leader: Space
 
 -   <Leader>f : ファイル名を検索(Telescope)
 -   <Leader>s : 最近開いたファイルに切り替え(Telescope)
--   <Leader>fg : Telescope live_grep
+-   <Leader>g : テキストを検索(Telescope)
 -   <Leader>fh : Telescope help_tags
 
 
