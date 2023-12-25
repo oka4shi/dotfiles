@@ -183,7 +183,6 @@ require('jetpack.packer').startup(function(use)
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/vim-vsnip"
 
-    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
 end)
 
@@ -222,10 +221,8 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
 -- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+  vim.lsp.diagnostic.on_publish_diagnostics
 )
-
-require("lsp_lines").setup()
 
 -- Reference highlight
 vim.cmd [[
