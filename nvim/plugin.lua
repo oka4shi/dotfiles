@@ -143,7 +143,7 @@ require('jetpack.packer').startup(function(use)
     }
 
     -- Cheetsheet
-    use {'goahi/vim-cheatsheet',
+    use {'oka4shi/vim-cheatsheet',
         config = function()
             vim.g['cheatsheet#cheat_file'] = (vim.g.config_dir .. '/cheetsheet.md')
 
