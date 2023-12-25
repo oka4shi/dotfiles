@@ -1,4 +1,3 @@
-
 require('jetpack.packer').startup(function(use)
     -- Color scheme(nightfox)
     use {'EdenEast/nightfox.nvim',
@@ -25,7 +24,6 @@ require('jetpack.packer').startup(function(use)
             vim.g['fern#default_hidden'] = 1
         end
     }
-
 
     use {'lambdalisue/nerdfont.vim'}
     use {'lambdalisue/fern-renderer-nerdfont.vim', requires = {'lambdalisue/nerdfont.vim', 'lambdalisue/fern.vim'},
@@ -87,10 +85,10 @@ require('jetpack.packer').startup(function(use)
                             return '<Ignore>'
                         end, {expr=true})
                     map('n', '[c', function()
-                          if vim.wo.diff then return '[c' end
-                              vim.schedule(function() gs.prev_hunk() end)
-                              return '<Ignore>'
-                          end, {expr=true})
+                        if vim.wo.diff then return '[c' end
+                            vim.schedule(function() gs.prev_hunk() end)
+                            return '<Ignore>'
+                        end, {expr=true})
 
                     map('n', 'gp', gs.preview_hunk)
                 end
@@ -103,10 +101,10 @@ require('jetpack.packer').startup(function(use)
     use {'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require'nvim-treesitter.configs'.setup {
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "astro", "bash" , "css", "csv", "diff", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "gomod", "gosum", "html", "javascript", "json", "json5", "jsonc", "nim", "python", "regex", "rust", "scss", "ssh_config", "svelte", "toml", "typescript", "xml", "yaml"},
-        highlight = { enable = true }
-      }
+        require'nvim-treesitter.configs'.setup {
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "astro", "bash" , "css", "csv", "diff", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "gomod", "gosum", "html", "javascript", "json", "json5", "jsonc", "nim", "python", "regex", "rust", "scss", "ssh_config", "svelte", "toml", "typescript", "xml", "yaml"},
+            highlight = { enable = true }
+        }
     end
 }
 
@@ -115,7 +113,7 @@ require('jetpack.packer').startup(function(use)
 
     -- Auto closing brackets
     use {
-	"windwp/nvim-autopairs",
+        "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
 
@@ -177,7 +175,7 @@ require('jetpack.packer').startup(function(use)
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
 
-    use'j-hui/fidget.nvim'
+    use 'j-hui/fidget.nvim'
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
@@ -191,19 +189,14 @@ end)
 require('mason').setup()
 require('mason-lspconfig').setup_handlers({ function(server)
     local opt = {
-    -- -- Function executed when the LSP server startup
-    -- on_attach = function(client, bufnr)
-    --   local opts = { noremap=true, silent=true }
-    --   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    --   vim.cmd 'autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)'
-    -- end,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    )
+        -- Function executed when the LSP server startup
+        capabilities = require('cmp_nvim_lsp').default_capabilities(
+            vim.lsp.protocol.make_client_capabilities()
+        )
     }
-require('lspconfig')[server].setup(opt)
+    require('lspconfig')[server].setup(opt)
+    require('lspconfig').astro.setup{}
 end })
-require'lspconfig'.astro.setup{}
 
 -- 2. build-in LSP function
 -- keyboard shortcut
@@ -222,7 +215,7 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
 -- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {}
+    vim.lsp.diagnostic.on_publish_diagnostics, {}
 )
 
 -- Reference highlight
@@ -268,3 +261,4 @@ cmp.setup({
         ghost_text = true,
     },
 })
+
