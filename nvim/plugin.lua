@@ -222,7 +222,7 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
 -- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics
+  vim.lsp.diagnostic.on_publish_diagnostics, {}
 )
 
 -- Reference highlight
