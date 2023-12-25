@@ -62,12 +62,6 @@ require('jetpack.packer').startup(function(use)
         end
     }
 
-    --use{'RRethy/vim-hexokinase', run = 'make hexokinase',
-    --    config = function()
-    --        vim.g.Hexokinase_highlighters = [ "virtual", "backgroundfull" ]
-    --    end
-    --}
-    
 
     -- Colorizer
     use {'norcalli/nvim-colorizer.lua',
@@ -75,31 +69,6 @@ require('jetpack.packer').startup(function(use)
             require'colorizer'.setup({'*'}, {css = true})
         end
     }
-
-
---    use {'airblade/vim-gitgutter',
---        config = function()
---            vim.keymap.set('n', 'gp', ':GitGutterPreviewHunk<CR>', {})
---
---            vim.g.gitgutter_sign_added = '＋'
---            vim.g.gitgutter_sign_modified = '～'
---            vim.g.gitgutter_sign_removed = '－'
---            vim.g.gitgutter_sign_column_always = 1
---
---
---            vim.g.gitgutter_override_sign_column_highlight = 1
---            vim.cmd("highlight SignColumn ctermbg=240")
---
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterAdd ctermfg=255 ctermbg=64 guifg=#ffffff guibg=#4b5632'})
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterChange ctermfg=255 ctermbg=32 guifg=#ffffff guibg=#0087d7'})
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterDelete ctermfg=255 ctermbg=124 guifg=#ffffff guibg=#4b1818'})
---
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterAddLine ctermfg=64 guifg=#4b5632'})
---            vim.api.nvim_crete_autocmd('ColorScheme', {command = 'highlight GitGutterChangeLine ctermfg=32 guifg=#0087d7'})
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterDeleteLine ctermfg=124 guifg=#4b1818'})
---        end
---    }
-
 
     use {'lewis6991/gitsigns.nvim',
         config = function()
