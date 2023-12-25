@@ -1,3 +1,7 @@
+# add snap to path
+PATH=/snap/bin:$PATH
+export PATH
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=512
