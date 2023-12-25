@@ -99,19 +99,9 @@ require('jetpack.packer').startup(function(use)
     }
 
 
-    -- Colorize brackets
-    use {'nvim-treesitter/nvim-treesitter'}
-    use {'mrjones2014/nvim-ts-rainbow', requires = {'nvim-treesitter/nvim-treesitter'},
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                rainbow = {
-                enable = true,
-                max_file_lines = 500,
-                },
-            })
-        end
-    }
 
+    -- Colorize brackets
+    use {'hiphish/rainbow-delimiters.nvim'}
 
     -- Auto closing brackets
     use {
