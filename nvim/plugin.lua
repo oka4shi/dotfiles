@@ -99,6 +99,16 @@ require('jetpack.packer').startup(function(use)
     }
 
 
+    -- Better syntax highlight
+    use {'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "astro", "bash" , "css", "csv", "diff", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "gomod", "gosum", "html", "javascript", "json", "json5", "jsonc", "nim", "python", "regex", "rust", "scss", "ssh_config", "svelte", "toml", "typescript", "xml", "yaml"},
+        highlight = { enable = true }
+      }
+    end
+}
 
     -- Colorize brackets
     use {'hiphish/rainbow-delimiters.nvim'}
@@ -161,9 +171,6 @@ require('jetpack.packer').startup(function(use)
             require("ibl").setup()
         end
     }
-
-    -- 
-    use {'wuelnerdotexe/vim-astro'}
 
     -- LSP
     use 'neovim/nvim-lspconfig'
