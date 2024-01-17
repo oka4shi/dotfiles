@@ -19,11 +19,16 @@ require('jetpack.packer').startup(function(use)
 
 
     -- Airline
-    use {'vim-airline/vim-airline'}
-    use {'vim-airline/vim-airline-themes', requires = {'vim-airline/vim-airline'},
-        config = function()
-            vim.fn['airline#switch_theme']('deus')
-        end
+    use {'nvim-lualine/lualine.nvim',
+       config = function()
+           require('lualine').setup({
+               options = {
+                   theme = 'everforest',
+                   component_separators = { left = '｜', right = '｜'},
+                   section_separators = { left = '', right = ''},
+               }
+           })
+         end
     }
 
 
