@@ -1,4 +1,5 @@
 require('jetpack.packer').startup(function(use)
+    use { 'tani/vim-jetpack' }
     -- Color scheme(nightfox)
     use {'EdenEast/nightfox.nvim',
         config = function()
