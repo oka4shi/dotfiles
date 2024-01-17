@@ -64,3 +64,6 @@ alias sudos='sudo `fc -lrn -1`'
 # setting GPG sign tty
 export GPG_TTY=$(tty)
 
+if type "fnm" > /dev/null 2>&1; then
+    eval "$(fnm env --use-on-cd)"
+fi
