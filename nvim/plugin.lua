@@ -3,6 +3,16 @@ require('jetpack.packer').startup(function(use)
     -- Color scheme(nightfox)
     use {'EdenEast/nightfox.nvim',
         config = function()
+            local groups = {
+                all = {
+                    -- disable italics
+                    ["@text.literal"] = { style = "NONE" },
+                    ["@text.uri"] = { style = "underline" },
+                    -- ["@text.emphasis"] = { style = "NONE" },
+                    ["@tag.attribute"] = { style = "NONE" }
+                }
+            }
+            require('nightfox').setup({ groups = groups })
             vim.cmd('colorscheme nightfox')
         end
     }
