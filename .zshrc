@@ -64,6 +64,9 @@ alias sudos='sudo `fc -lrn -1`'
 # setting GPG sign tty
 export GPG_TTY=$(tty)
 
+# remove merged git branches at the same time
+alias rmgitbranch='git branch --merged | grep -v "*" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
+
 if type "fnm" > /dev/null 2>&1; then
     eval "$(fnm env --use-on-cd)"
 fi
