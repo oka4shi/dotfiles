@@ -133,6 +133,13 @@ require('jetpack.packer').startup(function(use)
         config = function() require("nvim-autopairs").setup {} end
     }
 
+    use {
+    "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
+        end
+    }
+
 
     -- Improved search label
     use {'kevinhwang91/nvim-hlslens',

@@ -24,6 +24,10 @@ Leader: Space
 -  ]c : 次のGitのhunkに進む
 -   gp : Git の diff を表示
 
+- ys{motion}{char}        : add surround
+- ds{char}                : remove surround
+- cs{target}{replacement} : change surround
+
 ## コマンド類
 
 -   :noa w : ファイルをフォーマットせずに保存
