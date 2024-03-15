@@ -3,12 +3,12 @@ HISTFILE=~/.histfile
 HISTSIZE=512
 SAVEHIST=512
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 
+# Completion settings
+setopt globdots
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Language seting(en_US.UTF-8)
 export LANG='en_US.UTF-8'
@@ -19,6 +19,8 @@ setopt nolistbeep
 
 # GOPATH
 export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 
 # setting for powerline-go
