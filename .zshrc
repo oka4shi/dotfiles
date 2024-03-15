@@ -1,3 +1,7 @@
+# add snap to path
+PATH=/snap/bin:$PATH
+export PATH
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=512
@@ -41,6 +45,9 @@ if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     install_powerline_precmd
 fi
 
+# colorize the completion candidate
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
 
 # ls coloring (github.com/sharkdp/vivid is required)
 export LS_COLORS="$(vivid generate snazzy)"
@@ -62,3 +69,9 @@ alias sudos='sudo `fc -lrn -1`'
 # setting GPG sign tty
 export GPG_TTY=$(tty)
 
+# remove merged git branches at the same time
+alias rmgitbranch='git branch --merged | grep -v "*" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
+
+if type "fnm" > /dev/null 2>&1; then
+    eval "$(fnm env --use-on-cd)"
+fi

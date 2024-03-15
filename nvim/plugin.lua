@@ -1,19 +1,34 @@
-
 require('jetpack.packer').startup(function(use)
+    use { 'tani/vim-jetpack' }
     -- Color scheme(nightfox)
     use {'EdenEast/nightfox.nvim',
         config = function()
+            local groups = {
+                all = {
+                    -- disable italics
+                    ["@text.literal"] = { style = "NONE" },
+                    ["@text.uri"] = { style = "underline" },
+                    -- ["@text.emphasis"] = { style = "NONE" },
+                    ["@tag.attribute"] = { style = "NONE" }
+                }
+            }
+            require('nightfox').setup({ groups = groups })
             vim.cmd('colorscheme nightfox')
         end
     }
 
 
     -- Airline
-    use {'vim-airline/vim-airline'}
-    use {'vim-airline/vim-airline-themes', requires = {'vim-airline/vim-airline'},
-        config = function()
-            vim.fn['airline#switch_theme']('deus')
-        end
+    use {'nvim-lualine/lualine.nvim',
+       config = function()
+           require('lualine').setup({
+               options = {
+                   theme = 'everforest',
+                   component_separators = { left = '｜', right = '｜'},
+                   section_separators = { left = '', right = ''},
+               }
+           })
+         end
     }
 
 
@@ -25,7 +40,6 @@ require('jetpack.packer').startup(function(use)
             vim.g['fern#default_hidden'] = 1
         end
     }
-
 
     use {'lambdalisue/nerdfont.vim'}
     use {'lambdalisue/fern-renderer-nerdfont.vim', requires = {'lambdalisue/nerdfont.vim', 'lambdalisue/fern.vim'},
@@ -52,22 +66,16 @@ require('jetpack.packer').startup(function(use)
 
     -- Telescope
     use {'nvim-lua/plenary.nvim'}
-    use {'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = {'nvim-lua/plenary.nvim'},
+    use {'nvim-telescope/telescope.nvim', tag = '0.1.5', requires = {'nvim-lua/plenary.nvim'},
         config = function()
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-            vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
+            vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
             vim.keymap.set('n', '<leader>s', builtin.buffers, {})
             vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
         end
     }
 
-    --use{'RRethy/vim-hexokinase', run = 'make hexokinase',
-    --    config = function()
-    --        vim.g.Hexokinase_highlighters = [ "virtual", "backgroundfull" ]
-    --    end
-    --}
-    
 
     -- Colorizer
     use {'norcalli/nvim-colorizer.lua',
@@ -75,31 +83,6 @@ require('jetpack.packer').startup(function(use)
             require'colorizer'.setup({'*'}, {css = true})
         end
     }
-
-
---    use {'airblade/vim-gitgutter',
---        config = function()
---            vim.keymap.set('n', 'gp', ':GitGutterPreviewHunk<CR>', {})
---
---            vim.g.gitgutter_sign_added = '＋'
---            vim.g.gitgutter_sign_modified = '～'
---            vim.g.gitgutter_sign_removed = '－'
---            vim.g.gitgutter_sign_column_always = 1
---
---
---            vim.g.gitgutter_override_sign_column_highlight = 1
---            vim.cmd("highlight SignColumn ctermbg=240")
---
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterAdd ctermfg=255 ctermbg=64 guifg=#ffffff guibg=#4b5632'})
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterChange ctermfg=255 ctermbg=32 guifg=#ffffff guibg=#0087d7'})
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterDelete ctermfg=255 ctermbg=124 guifg=#ffffff guibg=#4b1818'})
---
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterAddLine ctermfg=64 guifg=#4b5632'})
---            vim.api.nvim_crete_autocmd('ColorScheme', {command = 'highlight GitGutterChangeLine ctermfg=32 guifg=#0087d7'})
---            vim.api.nvim_create_autocmd('ColorScheme', {command = 'highlight GitGutterDeleteLine ctermfg=124 guifg=#4b1818'})
---        end
---    }
-
 
     use {'lewis6991/gitsigns.nvim',
         config = function()
@@ -118,10 +101,10 @@ require('jetpack.packer').startup(function(use)
                             return '<Ignore>'
                         end, {expr=true})
                     map('n', '[c', function()
-                          if vim.wo.diff then return '[c' end
-                              vim.schedule(function() gs.prev_hunk() end)
-                              return '<Ignore>'
-                          end, {expr=true})
+                        if vim.wo.diff then return '[c' end
+                            vim.schedule(function() gs.prev_hunk() end)
+                            return '<Ignore>'
+                        end, {expr=true})
 
                     map('n', 'gp', gs.preview_hunk)
                 end
@@ -130,24 +113,31 @@ require('jetpack.packer').startup(function(use)
     }
 
 
-    -- Colorize brackets
-    use {'nvim-treesitter/nvim-treesitter'}
-    use {'mrjones2014/nvim-ts-rainbow', requires = {'nvim-treesitter/nvim-treesitter'},
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                rainbow = {
-                enable = true,
-                max_file_lines = 500,
-                },
-            })
-        end
-    }
+    -- Better syntax highlight
+    use {'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+        require'nvim-treesitter.configs'.setup {
+            ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "astro", "bash" , "css", "csv", "diff", "dockerfile", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "gomod", "gosum", "html", "javascript", "json", "json5", "jsonc", "nim", "python", "regex", "rust", "scss", "ssh_config", "svelte", "toml", "typescript", "xml", "yaml"},
+            highlight = { enable = true }
+        }
+    end
+}
 
+    -- Colorize brackets
+    use {'hiphish/rainbow-delimiters.nvim'}
 
     -- Auto closing brackets
     use {
-	"windwp/nvim-autopairs",
+        "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
+    }
+
+    use {
+    "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
+        end
     }
 
 
@@ -174,7 +164,7 @@ require('jetpack.packer').startup(function(use)
     }
 
     -- Cheetsheet
-    use {'goahi/vim-cheatsheet',
+    use {'oka4shi/vim-cheatsheet',
         config = function()
             vim.g['cheatsheet#cheat_file'] = (vim.g.config_dir .. '/cheetsheet.md')
 
@@ -199,65 +189,22 @@ require('jetpack.packer').startup(function(use)
     -- indent blankline
     use {'lukas-reineke/indent-blankline.nvim',
         config = function()
-            local function blend_bolor(fgcolor, bgcolor)
-                local r = fgcolor[1] * fgcolor[4] + bgcolor[1] * (1 - fgcolor[4])
-                local g = fgcolor[2] * fgcolor[4] + bgcolor[2] * (1 - fgcolor[4])
-                local b = fgcolor[3] * fgcolor[4] + bgcolor[3] * (1 - fgcolor[4])
-                return string.format("#%x%x%x", r, g, b)
-            end
-
-            vim.opt.list = true
-            vim.opt.listchars:append("space:⋅")
-
-            vim.g.indent_blankline_strict_tabs = true
-
-            vim.opt.termguicolors = true
-
-            local background = {25, 35, 48}
-
-            local indent_colors = {{255,255,64,0.1}, {127,255,127,0.1}, {255,127,255,0.1}, {79,236,236,0.1}}
-
-            vim.cmd [[highlight IndentBlanklineSpaceChar guifg=#666666 gui=nocombine]]
-
-            for i, color in ipairs(indent_colors) do
-                local bg = blend_bolor(color, background)
-                vim.cmd(string.format([[highlight IndentBlanklineIndent%s guifg=#666666 guibg=%s gui=nocombine]], i, bg))
-            end
-
-            require("indent_blankline").setup {
-                space_char_blankline = "",
-                char_blankline = "",
-                char_highlight_list = {
-                    "IndentBlanklineIndent1",
-                    "IndentBlanklineIndent2",
-                    "IndentBlanklineIndent3",
-                    "IndentBlanklineIndent4",
-                },
-                space_char_highlight_list = {
-                    "IndentBlanklineIndent1",
-                    "IndentBlanklineIndent2",
-                    "IndentBlanklineIndent3",
-                    "IndentBlanklineIndent4",
-                },
-            }
+            require("ibl").setup()
         end
     }
-
-    -- 
-    use {'wuelnerdotexe/vim-astro'}
 
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
 
-    use'j-hui/fidget.nvim'
+    use 'j-hui/fidget.nvim'
 
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/vim-vsnip"
 
-    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+    use{ 'prettier/vim-prettier', run = 'yarn install --frozen-lockfile --production', ft = {'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'}}
 
 end)
 
@@ -265,19 +212,14 @@ end)
 require('mason').setup()
 require('mason-lspconfig').setup_handlers({ function(server)
     local opt = {
-    -- -- Function executed when the LSP server startup
-    -- on_attach = function(client, bufnr)
-    --   local opts = { noremap=true, silent=true }
-    --   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    --   vim.cmd 'autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)'
-    -- end,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    )
+        -- Function executed when the LSP server startup
+        capabilities = require('cmp_nvim_lsp').default_capabilities(
+            vim.lsp.protocol.make_client_capabilities()
+        )
     }
-require('lspconfig')[server].setup(opt)
+    require('lspconfig')[server].setup(opt)
+    require('lspconfig').astro.setup{}
 end })
-require'lspconfig'.astro.setup{}
 
 -- 2. build-in LSP function
 -- keyboard shortcut
@@ -296,10 +238,8 @@ vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
 -- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+    vim.lsp.diagnostic.on_publish_diagnostics, {}
 )
-
-require("lsp_lines").setup()
 
 -- Reference highlight
 vim.cmd [[
@@ -344,3 +284,4 @@ cmp.setup({
         ghost_text = true,
     },
 })
+
