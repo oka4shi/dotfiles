@@ -183,7 +183,9 @@ require('jetpack.packer').startup(function(use)
 
 
     -- Vinary editor
-    use {'Shougo/vinarise.vim'}
+    use {'RaafatTurki/hex.nvim',
+        config = function() require 'hex'.setup() end
+    }
 
 
     -- indent blankline
