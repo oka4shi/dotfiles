@@ -1,7 +1,7 @@
 [user]
-    signingkey = 07D0089B2B415268
-    email = primary@goahi.live
-    name = "OKAMOTO Shigehiro"
+    signingkey = 4B2A31A40261EE15
+	email = primary@oka4shi.dev
+	name = OKAMOTO Shigehiro
 
 [init]
     defaultbranch = main
