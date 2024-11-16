@@ -5,7 +5,7 @@ export PATH
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=512
-SAVEHIST=512
+SAVEHIST=16384
 bindkey -e
 
 # Completion settings
