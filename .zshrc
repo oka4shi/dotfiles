@@ -59,6 +59,9 @@ chpwd() {
   ls
 }
 
+# typo
+alias ccd='cd'
+
 # shothand of systemctl
 alias systat='systemctl status'
 alias sysreload='sudo systemctl restart'
