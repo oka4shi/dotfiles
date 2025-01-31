@@ -69,11 +69,16 @@ alias sysreload='sudo systemctl restart'
 # sudo alias
 alias sudos='sudo `fc -lrn -1`'
 
+alias clip='xclip -selection clipboard'
+
 # setting GPG sign tty
 export GPG_TTY=$(tty)
 
 # remove merged git branches at the same time
-alias rmgitbranch='git branch --merged | grep -v "*" >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
+alias g-rmbranch='git branch --merged | grep -v "*" >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
+alias gc='git switch -c'
+alias gp='git add -p'
+alias gs='git status'
 
 if type "fnm" > /dev/null 2>&1; then
     eval "$(fnm env --use-on-cd)"
