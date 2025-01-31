@@ -195,6 +195,20 @@ require('jetpack.packer').startup(function(use)
         end
     }
 
+    -- Python Venv Slector(fd is needed)
+    use {'linux-cultist/venv-selector.nvim',
+        branch="regexp",
+        dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim' },
+        -- event = 'VeryLazy',
+        config = function()
+            require('venv-selector').setup {
+                name = {"venv", ".venv"}
+            }
+
+            vim.keymap.set('n', '<Leader>v',  '<cmd>VenvSelect<CR>')
+        end
+    }
+
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/mason.nvim'
