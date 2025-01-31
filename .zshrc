@@ -78,3 +78,8 @@ alias rmgitbranch='git branch --merged | grep -v "*" >/tmp/merged-branches && vi
 if type "fnm" > /dev/null 2>&1; then
     eval "$(fnm env --use-on-cd)"
 fi
+
+# keychain
+if type "keychain" > /dev/null 2>&1; then
+    eval $(keychain --eval --quiet id_ed25519)
+fi
