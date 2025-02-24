@@ -12,7 +12,6 @@ bindkey -e
 setopt globdots
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Language seting(en_US.UTF-8)
 export LANG='en_US.UTF-8'
