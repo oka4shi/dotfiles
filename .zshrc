@@ -13,8 +13,8 @@ setopt globdots
 autoload -Uz compinit
 compinit
 
-# Language seting(en_US.UTF-8)
-export LANG='en_US.UTF-8'
+# Language seting(C.UTF-8)
+export LANG='C.UTF-8'
 
 # stop beep 
 setopt no_beep
