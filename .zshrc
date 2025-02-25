@@ -17,32 +17,34 @@ export LANG='C.UTF-8'
 export GPG_TTY=$(tty)
 
 
-# === zsh ===
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=512
-SAVEHIST=16384
-bindkey -e
-
-# Completion settings
-setopt globdots
-autoload -Uz compinit
-compinit
-
-# stop beep 
-setopt no_beep
-setopt nolistbeep
-
-# ls coloring (github.com/sharkdp/vivid is required)
-export LS_COLORS="$(vivid generate snazzy)"
-
-# colorize the completion candidate
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-#cd -> ls
-chpwd() {
-  ls
+# === initialization of tools ===
+# powerline-go
+function powerline_precmd() {
+    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0})"
 }
+
+function install_powerline_precmd() {
+    for s in "${precmd_functions[@]}"; do
+        if [ "$s" = "powerline_precmd" ]; then
+            return
+        fi
+    done
+    precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+    install_powerline_precmd
+fi
+
+# fnm
+if type "fnm" > /dev/null 2>&1; then
+    eval "$(fnm env --use-on-cd)"
+fi
+
+# keychain
+if type "keychain" > /dev/null 2>&1; then
+    eval $(keychain --eval --quiet id_ed25519)
+fi
 
 
 # === aliases ===
@@ -73,31 +75,29 @@ alias gp='git add -p'
 alias gs='git status'
 
 
-# === initialization of tools ===
-# powerline-go
-function powerline_precmd() {
-    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0})"
+# === zsh ===
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=512
+SAVEHIST=16384
+bindkey -e
+
+# Completion settings
+setopt globdots
+autoload -Uz compinit
+compinit
+
+# stop beep 
+setopt no_beep
+setopt nolistbeep
+
+# ls coloring (github.com/sharkdp/vivid is required)
+export LS_COLORS="$(vivid generate snazzy)"
+
+# colorize the completion candidate
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+#cd -> ls
+chpwd() {
+  ls
 }
-
-function install_powerline_precmd() {
-    for s in "${precmd_functions[@]}"; do
-        if [ "$s" = "powerline_precmd" ]; then
-            return
-        fi
-    done
-    precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
-    install_powerline_precmd
-fi
-
-# fnm
-if type "fnm" > /dev/null 2>&1; then
-    eval "$(fnm env --use-on-cd)"
-fi
-
-# keychain
-if type "keychain" > /dev/null 2>&1; then
-    eval $(keychain --eval --quiet id_ed25519)
-fi
