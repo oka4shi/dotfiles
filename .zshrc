@@ -1,7 +1,23 @@
+# === path ===
 # add snap to path
 PATH=/snap/bin:$PATH
 export PATH
 
+# GOPATH
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
+
+# === system ===
+# Language seting(C.UTF-8)
+export LANG='C.UTF-8'
+
+# setting GPG sign tty
+export GPG_TTY=$(tty)
+
+
+# === zsh ===
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=512
@@ -13,20 +29,52 @@ setopt globdots
 autoload -Uz compinit
 compinit
 
-# Language seting(C.UTF-8)
-export LANG='C.UTF-8'
-
 # stop beep 
 setopt no_beep
 setopt nolistbeep
 
-# GOPATH
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
+# ls coloring (github.com/sharkdp/vivid is required)
+export LS_COLORS="$(vivid generate snazzy)"
+
+# colorize the completion candidate
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+#cd -> ls
+chpwd() {
+  ls
+}
 
 
-# setting for powerline-go
+# === aliases ===
+# typo
+alias ccd='cd'
+
+# aliases for ls
+alias ls='ls -a --color=auto'
+alias ll='ls -lah --color=auto'
+
+# shothand of systemctl
+alias dstatus='systemctl status'
+alias drestart='sudo systemctl restart'
+alias denable='sudo systemctl enable --now'
+
+# execute the former command with sudo
+alias sudos='sudo `fc -lrn -1`'
+
+# copy standard input to clipboard
+alias clip='xclip -selection clipboard'
+
+# remove merged git branches at the same time
+alias g-rmbranch='git branch --merged | grep -v "*" >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
+
+# shorthands of git commands
+alias gc='git switch -c'
+alias gp='git add -p'
+alias gs='git status'
+
+
+# === initialization of tools ===
+# powerline-go
 function powerline_precmd() {
     PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0})"
 }
@@ -44,42 +92,7 @@ if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     install_powerline_precmd
 fi
 
-
-# ls coloring (github.com/sharkdp/vivid is required)
-export LS_COLORS="$(vivid generate snazzy)"
-alias ls='ls -a --color=auto'
-alias ll='ls -lah --color=auto'
-
-# colorize the completion candidate
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-#cd -> ls
-chpwd() {
-  ls
-}
-
-# typo
-alias ccd='cd'
-
-# shothand of systemctl
-alias dstatus='systemctl status'
-alias drestart='sudo systemctl restart'
-alias denable='sudo systemctl enable --now'
-
-# sudo alias
-alias sudos='sudo `fc -lrn -1`'
-
-alias clip='xclip -selection clipboard'
-
-# setting GPG sign tty
-export GPG_TTY=$(tty)
-
-# remove merged git branches at the same time
-alias g-rmbranch='git branch --merged | grep -v "*" >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
-alias gc='git switch -c'
-alias gp='git add -p'
-alias gs='git status'
-
+# fnm
 if type "fnm" > /dev/null 2>&1; then
     eval "$(fnm env --use-on-cd)"
 fi
