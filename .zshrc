@@ -62,8 +62,9 @@ chpwd() {
 alias ccd='cd'
 
 # shothand of systemctl
-alias systat='systemctl status'
-alias sysreload='sudo systemctl restart'
+alias dstatus='systemctl status'
+alias drestart='sudo systemctl restart'
+alias denable='sudo systemctl enable --now'
 
 # sudo alias
 alias sudos='sudo `fc -lrn -1`'
