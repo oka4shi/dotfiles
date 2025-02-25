@@ -44,14 +44,14 @@ if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     install_powerline_precmd
 fi
 
-# colorize the completion candidate
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
 
 # ls coloring (github.com/sharkdp/vivid is required)
 export LS_COLORS="$(vivid generate snazzy)"
 alias ls='ls -a --color=auto'
 alias ll='ls -lah --color=auto'
+
+# colorize the completion candidate
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 #cd -> ls
 chpwd() {
