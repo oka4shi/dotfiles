@@ -179,7 +179,7 @@ require('jetpack.packer').startup(function(use)
 
 
     -- Comment out at once
-    use{'tomtom/tcomment_vim'}
+    use {'tomtom/tcomment_vim'}
 
 
     -- Vinary editor
@@ -267,17 +267,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
         if client:supports_method('textDocument/documentHighlight') then
-        vim.api.nvim_create_augroup('lsp_document_highlight', {})
-        vim.api.nvim_create_autocmd({'CursorHold', 'CursorHoldI'}, {
-            group = 'lsp_document_highlight',
-                callback = function ()
-                vim.lsp.buf.document_highlight()
-                end
-        })
-        vim.api.nvim_create_autocmd({'CursorMoved', 'CursorMovedI'}, {
-            group = 'lsp_document_highlight',
-            callback = function () vim.lsp.buf.clear_references() end
-        })
+            vim.api.nvim_create_augroup('lsp_document_highlight', {})
+            vim.api.nvim_create_autocmd({'CursorHold', 'CursorHoldI'}, {
+                group = 'lsp_document_highlight',
+                    callback = function ()
+                    vim.lsp.buf.document_highlight()
+                    end
+            })
+            vim.api.nvim_create_autocmd({'CursorMoved', 'CursorMovedI'}, {
+                group = 'lsp_document_highlight',
+                callback = function () vim.lsp.buf.clear_references() end
+            })
         end
     end
 })
@@ -306,4 +306,11 @@ cmp.setup({
         ghost_text = true,
     },
 })
+
+-- fern workaround
+vim.keymap.set('n', '<C-n>', ':Fern . -reveal=% -drawer -toggle -width=40<CR>')
+vim.g['fern#default_hidden'] = 1
+
+vim.g['fern#renderer'] = 'nerdfont'
+
 
