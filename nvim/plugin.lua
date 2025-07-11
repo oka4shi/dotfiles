@@ -209,6 +209,9 @@ require('jetpack.packer').startup(function(use)
         end
     }
 
+    -- Copilot
+    use {'github/copilot.vim'}
+
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/mason.nvim'
