@@ -226,9 +226,7 @@ end)
 
 -- 1. LSP Sever management
 require('mason').setup()
-require('mason-lspconfig').setup_handlers({ function(server)
-    vim.lsp.enable(server)
-end })
+vim.lsp.enable(require('mason-lspconfig').get_installed_servers())
 
 -- 2. build-in LSP function
 -- keyboard shortcut
