@@ -197,7 +197,6 @@ require('jetpack.packer').startup(function(use)
 
     -- Python Venv Slector(fd is needed)
     use {'linux-cultist/venv-selector.nvim',
-        branch="regexp",
         dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim' },
         -- event = 'VeryLazy',
         config = function()
