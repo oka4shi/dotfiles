@@ -75,6 +75,11 @@ alias gp='git add -p'
 alias gs='git status'
 
 
+if type "zigup" > /dev/null 2>&1; then
+    alias zigup="zigup --path-link $HOME/.local/bin/zig"
+fi
+
+
 # === zsh ===
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
