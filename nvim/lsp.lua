@@ -41,6 +41,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.api.nvim_create_augroup('lsp_document_highlight', {})
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 group = 'lsp_document_highlight',
+                buffer = ev.buf,
                 callback = function()
                     vim.lsp.buf.document_highlight()
                 end
