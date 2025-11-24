@@ -36,18 +36,13 @@ set matchpairs& matchpairs+=<:>
 let g:config_dir = expand('~/.config/nvim')
 
 " install vim-jetpack if it is not installed
-let s:jetpackfile = g:config_dir .. '/autoload/jetpack.vim'
+let s:jetpackfile = stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
 let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
-
-if empty(glob(g:config_dir . '/autoload/jetpack.vim'))
-    echo "Installing jetpack..."
-    call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
+if !filereadable(s:jetpackfile)
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
-execute 'set runtimepath+='.g:config_dir
-
 " Automatic plugin installation
-let g:jetpack#optimization = 1
 for name in jetpack#names()
   if !jetpack#tap(name)
     call jetpack#sync()
@@ -66,3 +61,4 @@ runtime xmltag.lua
 
 " Load plugins
 runtime plugin.lua
+runtime lsp.lua
