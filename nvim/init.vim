@@ -32,7 +32,6 @@ syntax enable
 set matchtime=0
 set matchpairs& matchpairs+=<:>
 
-runtime keymapping.vim
 
 let g:config_dir = expand('~/.config/nvim')
 
@@ -59,6 +58,11 @@ endfor
 
 au FileType go setlocal sw=4 ts=4 sts=4 noet
 
+
+" Load key mappings
+runtime keymapping.lua
+" Load XML tag completion
+runtime xmltag.lua
 
 " Load plugins
 runtime plugin.lua
