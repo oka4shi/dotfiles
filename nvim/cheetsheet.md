@@ -30,7 +30,4 @@ Leader: Space
 
 ## コマンド類
 
--   :noa w : ファイルをフォーマットせずに保存
 -   :JetpackSync : プラグインを更新
-
--   :Vinarise : バイナリエディタを開く
