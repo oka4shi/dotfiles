@@ -34,19 +34,37 @@ require('jetpack.packer').add {
 
 
     -- Fern.vim
-    { 'lambdalisue/fern.vim' },
-    { 'lambdalisue/nerdfont.vim' },
-    { 'lambdalisue/fern-renderer-nerdfont.vim', requires = { 'lambdalisue/nerdfont.vim', 'lambdalisue/fern.vim' } },
-    { 'lambdalisue/glyph-palette.vim',          requires = { 'lambdalisue/fern.vim', 'lambdalisue/fern-renderer-nerdfont.vim' } },
-    { 'lambdalisue/fern-git-status.vim', requires = { 'lambdalisue/nerdfont.vim', 'lambdalisue/fern.vim' },
+    { 'lambdalisue/fern.vim',
+        requires = {
+            { 'lambdalisue/vim-glyph-palette' },
+            { 'nvim-tree/nvim-web-devicons' },
+            { 'TheLeoP/fern-renderer-web-devicons.nvim' },
+            { 'lambdalisue/fern-git-status.vim' }
+        },
         config = function()
             --Ctrl+n: toggle file tree
             vim.keymap.set('n', '<C-n>', ':Fern . -reveal=% -drawer -toggle -width=40<CR>')
-            vim.g['fern_git_status#disable_ignored'] = 1
-            vim.g['fern#renderer'] = 'nerdfont'
+
+            -- Set icon
+            vim.g['fern#renderer'] = 'nvim-web-devicons'
+
+            -- Apply icon colors
+            vim.fn['glyph_palette#apply']()
+            vim.g['glyph_palette#palette'] = require 'fr-web-icons'.palette()
             vim.api.nvim_create_autocmd('FileType', {
                 pattern = 'fern',
                 command = 'call glyph_palette#apply()'
+            })
+
+            -- Git status
+            vim.g['fern_git_status#disable_ignored'] = 1
+
+            -- Fix the fern buffer
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = 'fern',
+                callback = function()
+                    vim.opt_local.winfixbuf = true
+                end
             })
         end
     },
