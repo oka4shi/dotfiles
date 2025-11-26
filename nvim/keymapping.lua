@@ -25,3 +25,7 @@ vim.keymap.set("n", "/", "/\\v")
 
 -- toggle line number display
 vim.keymap.set("n", "<Leader>l", ":set number!<CR>")
+
+-- foldings
+vim.keymap.set("n", "<Tab>", "za")
+vim.keymap.set("n", "<Leader><Tab>", "zR")

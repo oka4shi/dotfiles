@@ -58,6 +58,8 @@ au FileType go setlocal sw=4 ts=4 sts=4 noet
 runtime keymapping.lua
 " Load XML tag completion
 runtime xmltag.lua
+" Load fold settings
+runtime fold.lua
 
 " Load plugins
 runtime plugin.lua
