@@ -16,6 +16,11 @@ export LANG='C.UTF-8'
 # setting GPG sign tty
 export GPG_TTY=$(tty)
 
+# Inhibit suspend when connected via SSH
+if [[ -n $SSH_CONNECTION && -z $TMUX ]]; then
+    gnome-session-inhibit --reason="Inhibit suspend during SSH connection aliving" --inhibit="suspend" sleep infinity &!
+fi
+
 
 # === initialization of tools ===
 # powerline-go
