@@ -25,3 +25,4 @@
 
 [alias]
     amend = commit --amend
+    l = log --oneline --graph --decorate -n 10
