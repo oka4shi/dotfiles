@@ -4,19 +4,7 @@ end
 
 -- Color scheme(nightfox)
 vim.pack.add({gh("EdenEast/nightfox.nvim")})
-require("nightfox").setup(
-    {
-        groups = {
-            all = {
-                -- disable italics
-                ["@text.literal"] = {style = "NONE"},
-                ["@text.uri"] = {style = "underline"},
-                -- ["@text.emphasis"] = { style = "NONE" },
-                ["@tag.attribute"] = {style = "NONE"}
-            }
-        }
-    }
-)
+require("nightfox").setup()
 vim.cmd("colorscheme nightfox")
 
 -- Airline
@@ -127,49 +115,6 @@ require("gitsigns").setup {
 
         map("n", "gp", gitsigns.preview_hunk)
     end
-}
-
--- Better syntax highlight
-vim.pack.add({gh("nvim-treesitter/nvim-treesitter")})
-require "nvim-treesitter.configs".setup {
-    ensure_installed = {
-        "c",
-        "lua",
-        "vim",
-        "vimdoc",
-        "query",
-        "bash",
-        "css",
-        "csv",
-        "diff",
-        "dockerfile",
-        "git_config",
-        "git_rebase",
-        "gitattributes",
-        "gitcommit",
-        "gitignore",
-        "go",
-        "gomod",
-        "gosum",
-        "html",
-        "javascript",
-        "json",
-        "json5",
-        "jsonc",
-        "nim",
-        "python",
-        "regex",
-        "ruby",
-        "rust",
-        "scss",
-        "ssh_config",
-        "svelte",
-        "toml",
-        "typescript",
-        "xml",
-        "yaml"
-    },
-    highlight = {enable = true}
 }
 
 -- Colorize brackets
