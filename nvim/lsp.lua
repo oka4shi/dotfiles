@@ -39,15 +39,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {}
 )
 
-
--- Reference highlight
-vim.cmd [[
-set updatetime=500
-highlight LspReferenceText  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
-]]
-
 vim.api.nvim_create_autocmd('LspAttach', {
     -- Reference: https://blog.devoc.ninja/2025/nvim-v0-11-0-language-server-feature/
     callback = function(ev)
