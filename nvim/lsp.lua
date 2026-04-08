@@ -35,10 +35,6 @@ vim.keymap.set('n', 'g[', vim.diagnostic.goto_prev, keyopts)
 
 
 -- LSP handlers
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {}
-)
-
 vim.api.nvim_create_autocmd('LspAttach', {
     -- Reference: https://blog.devoc.ninja/2025/nvim-v0-11-0-language-server-feature/
     callback = function(ev)
