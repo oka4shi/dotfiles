@@ -1,0 +1,52 @@
+{
+  "plugins": {
+    "fern-git-status.vim": {
+      "rev": "151336335d3b6975153dad77e60049ca7111da8e",
+      "src": "https://github.com/lambdalisue/fern-git-status.vim"
+    },
+    "fern-renderer-web-devicons.nvim": {
+      "rev": "71b44ab89b037acc3ef87bdec314e128853c6256",
+      "src": "https://github.com/TheLeoP/fern-renderer-web-devicons.nvim"
+    },
+    "fern.vim": {
+      "rev": "a96f8c6c52746346fe568e3711792c1e9268cf91",
+      "src": "https://github.com/lambdalisue/fern.vim"
+    },
+    "gitsigns.nvim": {
+      "rev": "0d797daee85366bc242580e352a4f62d67557b84",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "8811f3f3f4dc09d740c67e9ce399e7a541e2e5b2",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "nightfox.nvim": {
+      "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
+      "src": "https://github.com/EdenEast/nightfox.nvim"
+    },
+    "nvim-colorizer.lua": {
+      "rev": "5cfe7fffbd01e17b3c1e14af85d5febdef88bd8c",
+      "src": "https://github.com/catgoose/nvim-colorizer.lua"
+    },
+    "nvim-treesitter": {
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-web-devicons": {
+      "rev": "95b7a002d5dba1a42eb58f5fac5c565a485eefd0",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "7ef4d6dccb78ee71e552bbd866176762ad328afa",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "vim-glyph-palette": {
+      "rev": "675f0ad64e2c4b823bffc1907d469deefaf6e3bd",
+      "src": "https://github.com/lambdalisue/vim-glyph-palette"
+    }
+  }
+}

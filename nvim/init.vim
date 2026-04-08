@@ -42,21 +42,6 @@ endif
 
 let g:config_dir = expand('~/.config/nvim')
 
-" install vim-jetpack if it is not installed
-let s:jetpackfile = stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
-let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
-if !filereadable(s:jetpackfile)
-  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
-endif
-
-" Automatic plugin installation
-for name in jetpack#names()
-  if !jetpack#tap(name)
-    call jetpack#sync()
-    break
-  endif
-endfor
-
 
 au FileType go setlocal sw=4 ts=4 sts=4 noet
 
