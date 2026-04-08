@@ -1,3 +1,18 @@
+-- 0. Install packages
+local gh = function(x)
+    return "https://github.com/" .. x
+end
+vim.pack.add({
+    gh("neovim/nvim-lspconfig"),
+    gh("williamboman/mason.nvim"),
+    gh("williamboman/mason-lspconfig.nvim"),
+
+    gh("hrsh7th/nvim-cmp"),
+    gh("hrsh7th/cmp-nvim-lsp"),
+    gh("hrsh7th/vim-vsnip")
+})
+
+
 -- 1. LSP Sever management
 require('mason').setup()
 vim.lsp.enable(require('mason-lspconfig').get_installed_servers())

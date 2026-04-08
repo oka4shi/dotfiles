@@ -191,12 +191,3 @@ vim.keymap.set("n", "<Leader>v", "<cmd>VenvSelect<CR>")
 -- Copilot
 vim.pack.add({gh("github/copilot.vim")})
 
--- LSP
-vim.pack.add({gh("neovim/nvim-lspconfig")})
-vim.pack.add({gh("williamboman/mason.nvim")})
-vim.pack.add({gh("williamboman/mason-lspconfig.nvim")})
-
-vim.pack.add({gh("hrsh7th/nvim-cmp")})
-vim.pack.add({gh("hrsh7th/cmp-nvim-lsp")})
-vim.pack.add({gh("hrsh7th/vim-vsnip")})
-
