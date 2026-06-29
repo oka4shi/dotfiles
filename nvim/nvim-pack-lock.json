@@ -17,11 +17,11 @@
       "src": "https://github.com/TheLeoP/fern-renderer-web-devicons.nvim"
     },
     "fern.vim": {
-      "rev": "a96f8c6c52746346fe568e3711792c1e9268cf91",
+      "rev": "3d580357c09e199b0fa7d560b2db1ad05de02b9c",
       "src": "https://github.com/lambdalisue/fern.vim"
     },
     "gitsigns.nvim": {
-      "rev": "0d797daee85366bc242580e352a4f62d67557b84",
+      "rev": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "hex.nvim": {
@@ -33,23 +33,23 @@
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
     "lualine.nvim": {
-      "rev": "8811f3f3f4dc09d740c67e9ce399e7a541e2e5b2",
+      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "25f609e7fca78af7cede4f9fa3af8a94b1c4950b",
+      "rev": "47059d71b42d74b0a1e9f61c1d99d301039c3b5b",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
     },
     "mason.nvim": {
-      "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
       "src": "https://github.com/williamboman/mason.nvim"
     },
     "nightfox.nvim": {
-      "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
+      "rev": "26b61b1f856ec37cae3cb64f5690adb955f246a1",
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-autopairs": {
-      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-cmp": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
     "nvim-colorizer.lua": {
-      "rev": "5cfe7fffbd01e17b3c1e14af85d5febdef88bd8c",
+      "rev": "664c0b7cea1de71f8b65dfe951b7996fc3e6ccde",
       "src": "https://github.com/catgoose/nvim-colorizer.lua"
     },
     "nvim-hlslens": {
@@ -65,11 +65,11 @@
       "src": "https://github.com/kevinhwang91/nvim-hlslens"
     },
     "nvim-lspconfig": {
-      "rev": "bedca8b426b2fee0ccac596d167d71bbe971253f",
+      "rev": "3371bf298c1f56efc26771ee961f461176958fb5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
-      "rev": "9291040de8cd8a4439eb64c441e8d5d2bf884a5a",
+      "rev": "8b47db616ef658b8fc27e61db2896aa2f40134de",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-treesitter": {
@@ -77,15 +77,15 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-web-devicons": {
-      "rev": "95b7a002d5dba1a42eb58f5fac5c565a485eefd0",
+      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "otter.nvim": {
-      "rev": "a455e68a99d395889ab30a25ac3846a135e93c46",
+      "rev": "d781eda3bc18dbc8677f9a24abdc705fb74e4428",
       "src": "https://github.com/jmbuhr/otter.nvim"
     },
     "plenary.nvim": {
-      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "quarto-nvim": {
@@ -93,7 +93,7 @@
       "src": "https://github.com/quarto-dev/quarto-nvim"
     },
     "rainbow-delimiters.nvim": {
-      "rev": "aab6caaffd79b8def22ec4320a5344f7c42f58d2",
+      "rev": "a798325b7f36acc62741d1029930a7b96d4dd4bf",
       "src": "https://github.com/hiphish/rainbow-delimiters.nvim"
     },
     "tcomment_vim": {
@@ -101,11 +101,11 @@
       "src": "https://github.com/tomtom/tcomment_vim"
     },
     "telescope.nvim": {
-      "rev": "7ef4d6dccb78ee71e552bbd866176762ad328afa",
+      "rev": "427b576c16792edad01a92b89721d923c19ad60f",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "venv-selector.nvim": {
-      "rev": "bcb2f58533c59b01565285eba49693f00bc460f5",
+      "rev": "cc4bb3975de8835291f9bb45889e96c6b2795fc4",
       "src": "https://github.com/linux-cultist/venv-selector.nvim"
     },
     "vim-cheatsheet": {
