@@ -191,3 +191,8 @@ vim.keymap.set("n", "<Leader>v", "<cmd>VenvSelect<CR>")
 -- Copilot
 vim.pack.add({gh("github/copilot.vim")})
 
+-- Quarto
+vim.pack.add({
+    gh("jmbuhr/otter.nvim"),
+    gh("quarto-dev/quarto-nvim")
+})
