@@ -31,4 +31,4 @@ Leader: Space
 
 ## コマンド類
 
--   :JetpackSync : プラグインを更新
+-  :lua vim.pack.update() : プラグインを更新
