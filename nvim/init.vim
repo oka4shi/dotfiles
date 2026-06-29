@@ -16,6 +16,7 @@ set smartindent
 set autoindent
 filetype plugin indent on
 set expandtab
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
@@ -41,10 +42,6 @@ elseif $SSH_CONNECTION != ''
 endif
 
 let g:config_dir = expand('~/.config/nvim')
-
-
-au FileType go setlocal sw=4 ts=4 sts=4 noet
-
 
 " Load key mappings
 runtime keymapping.lua
