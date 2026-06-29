@@ -79,6 +79,8 @@ alias gc='git switch -c'
 alias gp='git add -p'
 alias gs='git status'
 
+# tmux attach
+alias ta='tmux list-sessions -F '#{session_name}' | xargs -I {} tmux detach-client -s {}; tmux attach'
 
 if type "zigup" > /dev/null 2>&1; then
     alias zigup="zigup --path-link $HOME/.local/bin/zig"
