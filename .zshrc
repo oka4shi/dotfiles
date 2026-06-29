@@ -41,9 +41,9 @@ if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
     install_powerline_precmd
 fi
 
-# fnm
-if type "fnm" > /dev/null 2>&1; then
-    eval "$(fnm env --use-on-cd)"
+# mise
+if type "mise" > /dev/null 2>&1; then
+    eval "$(mise activate zsh)"
 fi
 
 # keychain
