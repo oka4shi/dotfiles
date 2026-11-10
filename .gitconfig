@@ -8,6 +8,7 @@
 
 [core]
     editor = vim
+    sshCommand = env SSH_ASKPASS_REQUIRE=never ssh
 
 [commit]
     gpgsign = true
@@ -18,10 +19,6 @@
 
 [fetch]
     prune = true
-
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
 
 [alias]
     amend = commit --amend
