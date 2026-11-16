@@ -86,6 +86,8 @@ if type "zigup" > /dev/null 2>&1; then
     alias zigup="zigup --path-link $HOME/.local/bin/zig"
 fi
 
+# Incus
+source ~/.zsh/ic.zsh
 
 # === zsh ===
 # Lines configured by zsh-newuser-install
