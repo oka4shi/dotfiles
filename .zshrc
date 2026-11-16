@@ -105,8 +105,8 @@ compinit
 setopt no_beep
 setopt nolistbeep
 
-# ls coloring (github.com/sharkdp/vivid is required)
-export LS_COLORS="$(vivid generate snazzy)"
+# ls coloring
+export LS_COLORS="$(<~/.zsh/ls_colors_snazzy)"
 
 # colorize the completion candidate
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
