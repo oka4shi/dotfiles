@@ -46,10 +46,6 @@ if type "mise" > /dev/null 2>&1; then
     eval "$(mise activate zsh)"
 fi
 
-# keychain
-if type "keychain" > /dev/null 2>&1; then
-    eval $(keychain --eval --quiet id_ed25519)
-fi
 
 
 # === aliases ===
