@@ -43,5 +43,5 @@ EOF
   local cmd='exec $SHELL -l'
   (( $# )) && cmd=${(j: :)${(q)@}}
 
-  incus exec $INSTANCE_NAME -- su -l $u -c "cd ${(q)wd:-/} && $cmd"
+  incus exec $INSTANCE_NAME -- su --pty -l $u -c "cd ${(q)wd:-/} && $cmd"
 }
