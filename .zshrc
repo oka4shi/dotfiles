@@ -1,4 +1,7 @@
 # === path ===
+PATH="$HOME/.local/bin":$PATH
+export PATH
+
 # add snap to path
 PATH=/snap/bin:$PATH
 export PATH
