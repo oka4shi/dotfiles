@@ -1,0 +1,11 @@
+# ~/Docuemnts/incus 下にコピーし、インスタンス名(= プロファイル名)をファイル名として作成
+# パスは絶対パスで書く(~ は使えない)
+description: dev-main
+config:
+  security.nesting: "false"
+devices:
+  work:
+    type: disk
+    source: /home/okashi/Documents/my-prject
+    path: /home/okashi/my-project
+    shift: "true"
