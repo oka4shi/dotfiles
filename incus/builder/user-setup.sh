@@ -30,7 +30,7 @@ curl -fsSL https://mise.run | sh
 echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
 
 # Install tools with Mise
-mise use -g neovim@latest
+mise use -g neovim@latest node@latest tree-sitter@latest
 export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # dotfiles

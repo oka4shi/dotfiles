@@ -53,3 +53,4 @@ runtime fold.lua
 " Load plugins
 runtime plugin.lua
 runtime lsp.lua
+runtime treesitter.lua
