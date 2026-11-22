@@ -28,7 +28,7 @@ fi
 # === initialization of tools ===
 # powerline-go
 function powerline_precmd() {
-    PS1="$($GOPATH/bin/powerline-go -error $? -jobs ${${(%):%j}:-0})"
+    PS1="$(powerline-go -error $? -jobs ${${(%):%j}:-0})"
 }
 
 function install_powerline_precmd() {
@@ -40,7 +40,7 @@ function install_powerline_precmd() {
     precmd_functions+=(powerline_precmd)
 }
 
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+if [ "$TERM" != "linux" ] && command -v powerline-go >/dev/null 2>&1; then
     install_powerline_precmd
 fi
 
